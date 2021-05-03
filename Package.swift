@@ -1,24 +1,25 @@
-// swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.4.0
 import PackageDescription
 
 let package = Package(
-	
+
     name: "WebMIDIKit",
-	
-	platforms: [.macOS(.v10_11)],
-	
-	products: [
+
+    platforms: [
+        .macOS(.v10_11),
+        .iOS(.v12)
+    ],
+
+    products: [
         .library(
             name: "WebMIDIKit",
             targets: ["WebMIDIKit"]),
     ],
-	
-	dependencies: [
+
+    dependencies: [
     ],
-	
-	targets: [
+
+    targets: [
         .target(
             name: "WebMIDIKit",
             dependencies: []),
@@ -26,5 +27,5 @@ let package = Package(
             name: "WebMIDIKitTests",
             dependencies: ["WebMIDIKit"]),
     ]
-	
+
 )
