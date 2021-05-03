@@ -13,14 +13,14 @@ extension MIDIPacketList {
     /// we cannot make a copy since that woulnd't copy the whole list
     internal mutating func send(to output: MIDIOutput, offset: Double? = nil) {
 
-        _ = offset.map {
+//        _ = offset.map {
             // NOTE: AudioGetCurrentHostTime() CoreAudio method is only available on macOS
-            let current = AudioGetCurrentHostTime()
-            let _offset = AudioConvertNanosToHostTime(UInt64($0 * 1000000))
+//            let current = AudioGetCurrentHostTime()
+//            let _offset = AudioConvertNanosToHostTime(UInt64($0 * 1000000))
 
-            let ts = current + _offset
-            packet.timeStamp = ts
-        }
+//            let ts = current + _offset
+//            packet.timeStamp = ts
+//        }
 
         OSAssert(MIDISend(output.ref, output.endpoint.ref, &self))
         /// this let's us propagate the events to everyone subscribed to this
